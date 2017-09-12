@@ -78,11 +78,11 @@ public class MainModel extends Model {
         return false;
     }
 
+    //метод очищает дерево от пустых веток (содержащих одни пустые каталоги)
     private void deleteAllEmptyBranches(DefaultMutableTreeNode currNode) {
-        //Path pathFromCurrNode = ((PathContainer) currNode.getUserObject()).getPath();
         if (currNode == null) return;
 
-        if (currNode.getAllowsChildren() /*&& Files.isDirectory(pathFromCurrNode)*/) {
+        if (currNode.getAllowsChildren()) {
             if (currNode.isLeaf()) {
                 DefaultMutableTreeNode parent = (DefaultMutableTreeNode) currNode.getParent();
                 currNode.removeFromParent();
