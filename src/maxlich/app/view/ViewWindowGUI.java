@@ -230,7 +230,8 @@ public class ViewWindowGUI extends JFrame implements View {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.getPath().getLastPathComponent();
-                if (node.isLeaf()) return; //если это корневой элемент, то выходим из метода
+                if (node.getParent() == null || node.getAllowsChildren()) return;   //если это корневой элемент или директория,
+                                                                                    // то выходим из метода
                 Path path = ((PathContainer) node.getUserObject()).getPath();
                 if (!node.getAllowsChildren() && Files.isRegularFile(path))
                     controller.onSelectFileToShow(path);
