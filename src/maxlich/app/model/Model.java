@@ -10,5 +10,7 @@ public abstract class Model extends Observable {
     public abstract void loadFileTree(Path sourceDir, String extensionFiles,
                                       String textToFindIntoFiles, boolean matсhCaseOfTextToFind);
 
+    //метод, загружающий в модель содержимое выбранного файла
+    //pathToFile - путь к выбранному файлу
     public abstract void loadContentOfSelectedFile(Path pathToFile);
 }
