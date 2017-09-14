@@ -358,7 +358,8 @@ public class ViewWindowGUI extends JFrame implements View {
                 isTextAreaSelect = true;
                 ((JButton)e.getSource()).setText("Снять выделение");
             } else {
-                textAreaFileContent.select(0,0);
+                int docLength = textAreaFileContent.getDocument().getLength();
+                textAreaFileContent.select(docLength,docLength);
                 isTextAreaSelect = false;
                 ((JButton)e.getSource()).setText("Выделить всё");
             }
