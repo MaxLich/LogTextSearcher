@@ -349,18 +349,11 @@ public class ViewWindowGUI extends JFrame implements View {
     //обработка события от кнопки "Выделить всё" - выделение всего текста в textAreaContentFile
     class ButtonSellAllListener implements ActionListener {
         private boolean isTextAreaSelect;
-        private Highlighter highlighter;
-
-
-        public ButtonSellAllListener() {
-            highlighter = textAreaFileContent.getHighlighter();
-        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
             textAreaFileContent.grabFocus();
             if (!isTextAreaSelect) {
-                textAreaFileContent.setHighlighter(highlighter);
                 textAreaFileContent.selectAll();
                 isTextAreaSelect = true;
                 ((JButton)e.getSource()).setText("Снять выделение");
